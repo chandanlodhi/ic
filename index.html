@@ -1,0 +1,408 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#030100">
+    <title>Incentive Calculator</title>
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            width: 70%;
+            margin: 40px;
+            color:gold;
+            margin-left: 5px;
+            
+        }
+        
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            height: 30px;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            color:white;
+            font-size: 25px;
+    		font-weight: bold;
+    		text-shadow: 3px -2px black;
+            border-radius:9px;
+            background-color:#0000ff00;
+            
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #ddebef61;
+            border: 3px solid #d2f1f2;
+            border-radius: 2%;
+            padding:5px;
+            display:;
+            color:gold;
+        }
+        #outer{
+		height:100%;
+		width:100%;
+		border-radius:10px;
+		/*background-image:url(https://i.pinimg.com/736x/55/f7/e8/55f7e80ea7879536217305ac0112ed19.jpg);
+		background-size:cover;
+		background-position:center;*/
+		display:flex;
+		align-items:center;
+		justify-content:center;
+        margin-top: -145px;8    
+	    }
+        #inner{
+		height:60%;
+		width:100%;
+		border-radius:10px;
+		background-color:#f0f0f045;
+		backdrop-filter:blur(10px);
+		padding:20px;
+        margin-top: 60px;
+    	margin-left: -2;
+        border-color: gold;    
+	    }
+        h1{
+            color:gold;
+            margin-top: 21px;
+            margin-left: 53px;
+            font-size: 25px;
+        }
+        img{
+    		margin-top: -11px;
+    		margin-left: -54px;
+    		width: 56px;
+    		position: absolute;
+		}
+        .dot-container {
+            display: flex;
+            gap: 8px;
+            flex-direction: row-reverse;
+        }
+
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%; 
+            display: inline-block;
+        }
+
+       
+        .red {
+            background-color: #ff5f56;
+            border: 1px solid #e0443e; 
+        }
+
+        .yellow {
+            background-color: #ffbd2e;
+            border: 1px solid #dea123;
+        }
+
+        .green {
+            background-color: #27c93f;
+            border: 1px solid #1aab29;
+        }
+		a {
+ 			 text-decoration: none;
+		}
+
+        
+    </style>
+</head>
+<body>
+
+    <div class=
+    </style>
+</head>
+<body>
+    <a href="BITH.html"></a>
+    <h1><img src="icon.png" alt="icon">
+Incentive Calculator</h1>
+     <marquee style="
+    color: gold;">Enter current working day for current incentive</marquee>
+    <div id="outer">
+    <form>
+        <fieldset id="inner">
+            <legend id="name">Hi 💵 Check Incentive</legend>
+            <div class="dot-container">
+                 <a href="qc.html">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+               QC</a>
+            </div>
+        <label for="workingDays">Enter working days:</label>
+        <input type="number" id="workingDays" required="" autocomplete="off">
+        <br><br>
+        <label>Enter productions:</label><br>
+        <label for="meta1">Meta 1:</label>
+        <input type="number" id="meta1" required="">
+        <br>
+        <label for="meta2">Meta 2:</label>
+        <input type="number" id="meta2" required="">
+        <br>
+        <label for="annotation">Annotation:</label>
+        <input type="number" id="annotation" required="">
+        <br><br>
+        <button id="calculate">Calculate Incentive</button>
+        <br><br>    
+        <!--<button onclick="editName()" style="background-color: dimgrey;">Edit Name ✏️</button>-->
+   
+        </fieldset>
+    </form>
+    </div>
+    
+    <fieldset id="result">
+            <legend id="user">&#21328;अंतः अस्ति प्रारंभः&#21328;</legend> 
+                  </fieldset>
+    <h1 id="greet"></h1>
+    <script> 
+        
+    // 1. ब्राउज़र मेमोरी से नाम उठाने की कोशिश करें
+let name = localStorage.getItem("userName");
+
+// 2. अगर नाम नहीं मिलता (पहली बार में), तो prompt दिखाएं
+if (!name) {
+    name = prompt("Enter Your Name!") ?? "User";
+    localStorage.setItem("userName", name); // नाम को सेव करें
+}
+
+// 3. डिस्प्ले करें
+document.getElementById("name").innerHTML = `Hi ${name} 💵 Check Incentive`;
+
+// 4. Edit Name फंक्शन (वही 'name' वेरिएबल रिसेट करने के लिए)
+function editName() {
+    localStorage.removeItem("userName");
+    location.reload();
+}
+
+   
+        
+    document.getElementById('calculate').addEventListener('click', (e) => {
+        e.preventDefault();
+		document.getElementById('result').style.display = 'block';
+        // Read and validate input values
+        const workingDays = parseInt(document.getElementById('workingDays').value) || 0;
+        const meta1 = parseInt(document.getElementById('meta1').value) || 0;
+        const meta2 = parseInt(document.getElementById('meta2').value) || 0;
+        const annotation = parseInt(document.getElementById('annotation').value) || 0;
+
+        // Optional: If any field is still empty, show a warning
+        if (
+            document.getElementById('workingDays').value === "" ||
+            document.getElementById('meta1').value === "" ||
+            document.getElementById('meta2').value === "" ||
+            document.getElementById('annotation').value === ""
+        ) {
+            document.getElementById('result').innerHTML = `<p style="color:red;">Please fill in all fields!</p>`;
+            document.getElementById('greet').innerHTML = "";
+            return;
+        }
+
+        // Perform calculations
+        const parseValue = 90.12 * workingDays;
+        const totalpar = (meta1 * 45.06 + meta2 * 47.43 + annotation * 7.51) / 100;
+        const inper = totalpar - parseValue;
+
+        // Use 'let' for a variable that will be reassigned
+const inputNumber = inper;
+let incentive=0;
+if (inputNumber >= 1 && inputNumber <= 200) {
+  incentive = inputNumber * 3.33;
+} else if (inputNumber >= 201 && inputNumber <= 300) {
+  incentive = inputNumber * 4.84;
+} else if (inputNumber >= 301) { // Assuming 301 and above
+  incentive = inputNumber * 6.33;}
+  
+  
+
+        
+        const achieved = (totalpar/(parseValue/100));
+        // User Name
+        /*function myFunction() {
+            alert("Hello");
+        let text;
+        let person = prompt("Please enter your name:", "Chandan Lodhi");
+        if (person == null || person == "") {
+                 text = "Hi, check your incentive !";
+            } else {
+                text = "Hello " + person + " check your incentive!";
+                }
+            document.getElementById("user").innerHTML = text;
+        }*/
+        // Display congratulations if incentive is positive
+        if (inper > 0) {
+            document.getElementById("greet").innerHTML = "Congratulations ! 🎉🎊";
+        } else {
+            document.getElementById("greet").innerHTML = "";
+        }
+
+        // Display the result with rounding
+        document.getElementById('result').innerHTML = `
+            <p id="user">Hi, ${name} check your incentive !</p>
+            <table>
+                <tr><td>Your monthly Percentage :</td>
+                    <td>${parseValue.toFixed(2)}</td></tr>
+                <tr><td>Total Production :</td> 
+                    <td>${totalpar.toFixed(2)}</td></tr>
+                <tr><td>Difference :</td> 
+                    <td>${inper.toFixed(2)}</td></tr>
+                <tr><td>Your Incentive :</td>
+                	<td><strong style="color: #27c93f;">₹ ${incentive.toFixed(2)}</strong></td></tr>
+                <tr><td>Your Monthy Achieved :</td>
+                    <td>${achieved.toFixed(2)}%</td></tr>    
+            </table>
+        `;
+    });
+</script>
+
+
+
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: black; /* Light background for contrast */
+            font-family: Arial, sans-serif;
+            flex-direction: column; /* To stack the icons and text vertically */
+        }
+
+        .social-bar-container {
+            display: flex;
+            gap: 15px; /* Space between icons */
+            margin-bottom: 0px; /* Space between icons and text */
+            flex-wrap: wrap; /* Allow icons to wrap on smaller screens */
+            justify-content: center; /* Center icons horizontally */
+        }
+
+        .social-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px; /* Size of the icon container */
+            height: 60px; /* Size of the icon container */
+            background-color: black; /* Black background for the icons */
+            border-radius: 8px; /* Slightly rounded corners for square icons */
+            color: gold; /* White icon color */
+            font-size: 30px; /* Size of the icon itself */
+            text-decoration: none; /* Remove underline from links */
+            transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+        }
+
+        /* Specific styling for circular icons */
+        .social-icon-wrapper.circle {
+            border-radius: 50%; /* Make it perfectly circular */
+        }
+
+        .social-icon-wrapper:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .follow-us-text {
+            font-size: 1.5em; /* Adjust text size */
+            font-weight: bold;
+            letter-spacing: 3px; /* Spacing between letters */
+            color: #333; /* Dark gray for the text */
+            text-transform: uppercase; /* Ensure text is uppercase */
+        }
+
+        /* Adjustments for responsiveness on smaller screens */
+        @media (max-width: 768px) {
+            .social-bar-container {
+                gap: 10px;
+                
+            }
+
+            .social-icon-wrapper {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+            }
+
+            .follow-us-text {
+                font-size: 1.2em;
+                letter-spacing: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-icon-wrapper {
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+
+            .follow-us-text {
+                font-size: 1em;
+                letter-spacing: 1px;
+                text-align: center;
+                padding: 0 10px; /* Add some padding on very small screens */
+            }
+        }
+
+    </style>
+
+
+
+    <div class="social-bar-container">
+        <a href="https://www.facebook.com/" target="_blank" aria-label="Follow us on Facebook" class="social-icon-wrapper">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/chandan_lodhi_12/" target="_blank" aria-label="Follow us on Instagram" class="social-icon-wrapper">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/+917489899340" target="_blank" aria-label="Connect with us on WhatsApp" class="social-icon-wrapper">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.youtube.com/@chandanlodhi5693" target="_blank" aria-label="Subscribe to our YouTube channel" class="social-icon-wrapper circle">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://t.me/+917489899340" target="_blank" aria-label="Join us on Telegram" class="social-icon-wrapper circle">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+    </div>
+
+    <div class="follow-us-text">
+        FOLLOW US ON
+    </div>
+
+
+<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div></body></html>
